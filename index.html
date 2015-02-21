@@ -23,6 +23,7 @@
                     <div class="book__title"><a ng-href="{{ book.url }}">{{ book.title }}</a></div>
                     <div class="book__author"><a ng-href="{{ book.authorUrl }}">{{ book.author }}</a></div>
                     <span class="label label-info" ng-repeat="tag in book.tags">{{ tag }}</span>
+                    <span class="book__level label" ng-class="'book__level--' + book.level">{{ book.level }}</span>
                     <div class="book__info">{{ book.info }}</div>
                 </div>
             </div>

@@ -22,6 +22,18 @@
 .book__tags {
     
 }
+.book__level {
+
+}
+.book__level--beginner {
+    background-color: #5CB85C;
+}
+.book__level--intermediate {
+    background-color: #F0AD4E;
+}
+.book__level--advanced {
+    background-color: #D9534F;
+}
 .book__info {
     margin-top: 3px;
     font-size: 1rem;
