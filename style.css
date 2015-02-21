@@ -1,0 +1,42 @@
+.books {
+    margin-top: 5px;
+}
+.book {
+    height:200px;
+}
+.book a {
+    color:black;
+    text-decoration: underline;
+}
+.book__img {
+    float:left;
+    margin-right: 10px;
+    border:1px solid silver;
+}
+.book__title {
+    font-weight:bold;
+}
+.book__author {
+    
+}
+.book__tags {
+    
+}
+.book__info {
+    margin-top: 3px;
+    font-size: 1rem;
+    font-style: italic;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+/* bootstrap  overrides */
+.jumbotron {
+    margin-bottom: 10px;
+}
+.jumbotron.intro {
+    padding:20px;
+    margin-bottom:20px;
+}
+.jumbotron.intro h3 {
+    margin: 0;
+}

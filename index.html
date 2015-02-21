@@ -4,52 +4,10 @@
         <meta charet="utf-8">
         <title>AngularJS Workshop</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./style.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.13/angular.min.js"></script>
-        <style>
-            .books {
-                margin-top: 5px;
-            }
-            .book {
-                height:200px;
-            }
-            .book a {
-                color:black;
-                text-decoration: underline;
-            }
-            .book__img {
-                float:left;
-                margin-right: 10px;
-                border:1px solid silver;
-            }
-            .book__title {
-                font-weight:bold;
-            }
-            .book__author {
-                
-            }
-            .book__tags {
-                
-            }
-            .book__info {
-                margin-top: 3px;
-                font-size: 1rem;
-                font-style: italic;
-                overflow:hidden;
-                text-overflow: ellipsis;
-            }
-            /* bootstrap  overrides */
-            .jumbotron {
-                margin-bottom: 10px;
-            }
-            .jumbotron.intro {
-                padding:20px;
-                margin-bottom:20px;
-            }
-            .jumbotron.intro h3 {
-                margin: 0;
-            }
-        </style>
+        <script src="app.js"></script>
     </head>
     <body>
         <div class="container" ng-controller="MainCtrl as MainCtrl">
@@ -70,31 +28,6 @@
             </div>
         </div>
     </body>
-    <script>
-
-        angular.module('DemoApp', [])
-
-        .service('loadBooks', function($http) {
-            return function() {
-                return $http.get('./books.json').then(function(response) {
-                    return response.data.books;
-                });
-            };
-        })
-
-        .controller('MainCtrl', function(loadBooks) {
-            this.name = 'world';
-
-            this.books = [];
-
-            var self = this;
-            loadBooks().then(function(books) {
-                self.books = books;
-            });
-
-        });
-
-    </script>
 </html>
 
 
