@@ -21,7 +21,26 @@ angular.module('DemoApp', [])
     };
 })
 
-.controller('MainCtrl', function(loadBooks) {
+.service('uniqueArray', function() {
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+
+    return function(array) {
+        return array.filter( onlyUnique );
+    }
+})
+
+.controller('MainCtrl', function(loadBooks, uniqueArray) {
+
+    function getUniqueTags() {
+        var tags = [];
+        angular.forEach(self.books, function(book) {
+            tags = tags.concat(book.tags);
+        });
+        return uniqueArray(tags);
+    }
+
     this.name = 'world';
 
     this.books = [];
@@ -29,6 +48,8 @@ angular.module('DemoApp', [])
     var self = this;
     loadBooks().then(function(books) {
         self.books = books;
+        self.tags = getUniqueTags();
+        self.tags.sort();
     });
 
 });

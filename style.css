@@ -1,3 +1,12 @@
+.filter__tags .label {
+    margin-right: 3px;
+    display:inline-block;
+    opacity:0.5;
+    cursor:pointer;
+}
+.filter__tags .label:hover {
+    opacity:1;
+}
 .books {
     margin-top: 5px;
 }
@@ -16,14 +25,8 @@
 .book__title {
     font-weight:bold;
 }
-.book__author {
-    
-}
-.book__tags {
-    
-}
-.book__level {
-
+.book .label {
+    margin-right:3px;
 }
 .book__level--beginner {
     background-color: #5CB85C;
