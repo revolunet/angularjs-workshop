@@ -26,6 +26,15 @@
                         >{{ tag }}
                         </span>
                     </div>
+                    <div class="filter">Levels :
+                        <span
+                            class="label label-info {{ 'book__level--' + level }} "
+                            ng-class="{'label--selected': FilterCtrl.isSelected('levels', level) }"
+                            ng-click="FilterCtrl.toggle('levels', level)"
+                            ng-repeat="level in MainCtrl.levels"
+                        >{{ level }}
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="row books">

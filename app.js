@@ -33,7 +33,8 @@ angular.module('DemoApp', [])
 
 .service('Filters', function() {
     var selection = {
-        tags: []
+        tags: [],
+        levels: []
     };
 
     function getItemIndex(field, value) {
@@ -76,7 +77,8 @@ angular.module('DemoApp', [])
 
         var results = [];
 
-        var filterTags = Filters.selection.tags.length > 0;
+        var filterTags = Filters.selection.tags.length > 0,
+            filterLevels = Filters.selection.levels.length > 0;
 
         angular.forEach(array, function(book) {
             var hasTag = false,
@@ -88,7 +90,9 @@ angular.module('DemoApp', [])
                 }
             });
 
-            if ((!filterTags || hasTag)) {
+            hasLevel = Filters.selection.levels.indexOf(book.level) > -1;
+
+            if ((!filterTags || hasTag) && (!filterLevels || hasLevel)) {
                 results.push(book);
             }
 
@@ -111,6 +115,7 @@ angular.module('DemoApp', [])
     this.name = 'world';
 
     this.books = [];
+    this.levels = ["beginner", "intermediate", "advanced"];
 
     var self = this;
     loadBooks().then(function(books) {
