@@ -17,6 +17,11 @@
                     <h3>We have {{ MainCtrl.books.length }} free Javascript ebooks for you</h3>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-4" ng-repeat="book in MainCtrl.books">
+                    {{ book.title }}
+                </div>
+            </div>
         </div>
     </body>
     <script>
