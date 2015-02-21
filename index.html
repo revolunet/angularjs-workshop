@@ -16,10 +16,20 @@
             </div>
             <div class="jumbotron intro">
                 <h3>{{ MainCtrl.books.length }} free Javascript ebooks for you</h3>
-                <div class="filter__tags">Tags : <span class="label label-info" ng-repeat="tag in MainCtrl.tags">{{ tag }}</span></div>
+                <div ng-controller="FilterCtrl as FilterCtrl">
+                    <div class="filter" >Tags :
+                        <span
+                            class="label label-info"
+                            ng-class="{ 'label--selected': FilterCtrl.isSelected('tags', tag) }"
+                            ng-click="FilterCtrl.toggle('tags', tag)"
+                            ng-repeat="tag in MainCtrl.tags"
+                        >{{ tag }}
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="row books">
-                <div class="book col-xs-12 col-md-6 col-lg-4" ng-repeat="book in MainCtrl.books">
+                <div class="book col-xs-12 col-md-6 col-lg-4" ng-repeat="book in MainCtrl.books|filterBooks">
                     <a ng-href="{{ book.url }}"><img class="book__img" ng-src="{{ book.cover }}" width="120"/></a>
                     <div class="book__title"><a ng-href="{{ book.url }}">{{ book.title }}</a></div>
                     <div class="book__author"><a ng-href="{{ book.authorUrl }}">{{ book.author }}</a></div>

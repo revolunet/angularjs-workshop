@@ -1,10 +1,16 @@
-.filter__tags .label {
+.filter {
+    margin-top:10px;
+}
+.filter .label {
     margin-right: 3px;
     display:inline-block;
-    opacity:0.5;
+    opacity:0.4;
     cursor:pointer;
 }
-.filter__tags .label:hover {
+.filter .label:hover {
+    opacity:1;
+}
+.filter .label--selected {
     opacity:1;
 }
 .books {
