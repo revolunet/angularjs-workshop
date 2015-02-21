@@ -14,16 +14,25 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <h3>Hello, {{ MainCtrl.name }}</h3>
+                    <h3>We have {{ MainCtrl.books.length }} free Javascript ebooks for you</h3>
                 </div>
             </div>
         </div>
     </body>
     <script>
+
         angular.module('DemoApp', [])
 
-        .controller('MainCtrl', function() {
+        .controller('MainCtrl', function($http) {
             this.name = 'world';
+
+            this.books = [];
+
+            var self = this;
+            $http.get('./books.json').then(function(response) {
+                self.books = response.data.books;
+            });
+
         });
 
     </script>
