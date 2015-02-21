@@ -1,18 +1,32 @@
 <!doctype html>
-<html>
+<html ng-app="DemoApp">
     <head>
         <meta charet="utf-8">
         <title>AngularJS Workshop</title>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.13/angular.min.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container" ng-controller="MainCtrl as MainCtrl">
             <div class="jumbotron text-center">
                 <h1>AngularJS Workshop</h1>
             </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>Hello, {{ MainCtrl.name }}</h3>
+                </div>
+            </div>
         </div>
     </body>
+    <script>
+        angular.module('DemoApp', [])
+
+        .controller('MainCtrl', function() {
+            this.name = 'world';
+        });
+
+    </script>
 </html>
 
 
