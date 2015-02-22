@@ -1,5 +1,5 @@
 
-angular.module('DemoApp', [])
+angular.module('DemoApp', ['ngAnimate'])
 
 .service('loadBooks', function($http, randomizeArray) {
     return function() {
